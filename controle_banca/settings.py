@@ -47,6 +47,7 @@ INSTALLED_APPS += [
     'banca_valores',
     'dinheiro',
     'inicio',
+    'pagina_inicial',
 ]
 
 MIDDLEWARE = [

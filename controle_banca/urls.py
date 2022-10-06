@@ -1,11 +1,11 @@
-from xml.etree.ElementInclude import include
 
 from banca_valores.views import informacoes_banca, registrar_banca
 from bilhetes.views import informacoes_bilhete, registrar_bilhete
 from dashboard.views import index
 from dinheiro.views import mostrar_saldo, registrar_entrada
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from pagina_inicial.views import pagina_inicial
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,6 +48,8 @@ urlpatterns = [
         name="mostrar_saldo"
 
 
-    )
+    ),
+    path("pagina_inicial/", pagina_inicial,
+         name="pagina_inicial"),
 
 ]
