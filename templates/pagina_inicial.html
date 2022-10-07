@@ -1,8 +1,16 @@
+{% load static %}
 {% include 'pagina_inicial/partes/head.html' %}
+
+
+
+<head>
+
+</head>
 
 <body>
     {% include 'pagina_inicial/partes/header.html' %}
     {% include 'pagina_inicial/partes/search.html' %}
+
 
 
     <main class="main-content-container">
@@ -58,7 +66,170 @@
             </div>
 
             <h2>olá</h2>
+            {% block conteudo %}
+            <main class="bilhetes-recentes">
+                <div class="bilhetes-recentes">
+                    <div>
+                        <h1>{{ nome_pagina }}</h1>
 
+                        <a href="{% url 'registrar_bilhete' %}">
+                            <span>Registrar Bilhete</span>
+
+                            <span>
+                                <i class="fas fa-user-plus"></i>
+                            </span>
+                        </a>
+
+                        <a href="{% url 'registrar_entrada' %}">
+                            <span>Registrar Banca</span>
+
+                            <span>
+                                <i class="fas fa-user-plus"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'mostrar_saldo' %}">
+                            <span>informacoes banca</span>
+
+                            <span>
+                                <i class="fas fa-user-plus"></i>
+                                </spanclass=>
+                        </a>
+                    </div>
+
+                    {% if messages %}
+                    {% for mensagem in messages %}
+                    <div>
+                        {{ mensagem }}
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                Aguardando</div>
+                                            <div>
+                                                {{ billhetes_aguardando }}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <i class="fas fa-user-lock fa-2x text-gray-300"></i>
+                                        </div>
+                                        </div=>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <div">
+                                                    Bilhetes
+                                                    Green
+                                            </div>
+                                            <div>{{bilhetes_green}}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <i class="fas fa-user-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <div>
+                                    <div">
+                                        <div>
+                                            <div>
+                                                Reds
+                                            </div>
+                                            <div>{{ bilhetes_red }}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>Sua Banca
+                                        </div>
+                                        <div>
+                                            {{ Banca_valor.valor_inicial }}</div>
+                                    </div>
+                                    <div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bilhetes-recentes">
+                    <div>
+                        <h6>Apostas recentes</h6>
+                    </div>
+
+                    <div>
+                        <div>
+                            <table class="bilhetes-recentes">
+                                <thead>
+                                    <th>Partida</th>
+
+                                    <th>valor aposta</th>
+
+                                    <th>Resultado</th>
+                                    <th>Status Bilhete</th>
+                                    <th>horario aposta</th>
+
+                                    <th>Mais informações</th>
+                                </thead>
+
+                                <tbody>
+                                    {% for bilhete in todos_bilhetes %}
+                                    <tr>
+                                        <td>{{ bilhete.get_jogo }}</td>
+                                        <td>{{ bilhete.get_valor_aposta }}</td>
+
+                                        <td>{{ bilhete.valor_ganho}}</td>
+                                        <td>{{ bilhete.status}}</td>
+                                        <td>{{ bilhete.horario_aposta}}</td>
+
+                                        <td>
+                                            <a href="{% url 'informacoes_bilhete' id=bilhete.id %}">
+                                                Ver informações
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+    {% endblock conteudo %}
 
 
 
