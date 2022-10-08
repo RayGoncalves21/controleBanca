@@ -84,7 +84,7 @@
         body {
             font-size: 1.6rem;
             font-family: var(--font-primary);
-            background: #181118;
+            background: #161618;
             color: var(--color-warning-light);
             font-size: 2.4rem;
         }
@@ -191,7 +191,7 @@
         .main-content-container {
             color: white;
             align-items: center;
-            max-width: 270px;
+            max-width: 100%;
 
             margin: 0px 0px 0px 0px;
         }
@@ -199,25 +199,36 @@
 
 
         .resumo-cover {
-            background: var(--all_black);
-            margin-right: 0;
+
+            background: #25262c;
+            margin-left: 30px;
+            margin-right: 60px;
+            background-position: center;
+            padding: 17px;
+            padding-right: 90px;
+
+
+
+
 
         }
 
         .resumo-lista-item {
-            max-width: 200px;
+            display: flex;
+            flex-flow: row nowrap;
         }
 
         .main-content-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: var(--spacing-gutter-large);
+            display: contents;
+
+
+
 
 
         }
 
         .dashboard {
-            background: #261C26;
+            background: #25262c;
             box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
 
             transition: all 300ms ease-in-out;
@@ -235,7 +246,8 @@
         }
 
         .resumo-lista-item {
-            max-width: 64rem;
+            max-width: 320px;
+
         }
 
         .resumo-lista-item:hover {
@@ -291,7 +303,7 @@
         }
 
         .dashboard-titulo-container-green-numero {
-            color: green;
+            color: #367a65;
 
             font-size: 55px;
             padding-left: 45px;
@@ -321,6 +333,51 @@
 
         .dashboard-titulo-container-x {
             padding-left: 15px;
+        }
+
+        .bilhetes-recentes {
+            background: none;
+            max-width: 90%;
+
+        }
+
+        .bilhetes-recentes table {
+            background: none;
+            display: contents;
+
+
+
+        }
+
+        .bilhetes-recentes table th,
+        table td {
+            padding: 20px;
+            border: 1px solid #ffffff;
+            margin: 0;
+
+
+        }
+
+
+
+
+        .caixa {
+            background: none;
+        }
+
+        .botoes {
+            background: #25262c;
+            margin: 20px;
+            padding: 25px;
+            display: flex;
+
+        }
+
+        .botoes span {
+            background: none;
+            color: whitesmoke;
+            padding-right: 35px;
+
         }
     </style>
 </head>

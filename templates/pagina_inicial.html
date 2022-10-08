@@ -1,4 +1,3 @@
-{% load static %}
 {% include 'pagina_inicial/partes/head.html' %}
 
 
@@ -8,93 +7,126 @@
 </head>
 
 <body>
+
     {% include 'pagina_inicial/partes/header.html' %}
     {% include 'pagina_inicial/partes/search.html' %}
 
 
+    <main class="caixa">
+        <div>
+            <div class="botoes">
+                <h1></h1>
 
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            <div class="dashboard resumo-lista-item">
-                <div class="resumo-cover">
+                <a href="{% url 'registrar_bilhete' %}">
+                    <span>Registrar Bilhete</span>
 
+                    <span>
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                </a>
 
-                    <table>
-                        <tr>
-                            <th class="dashboard-titulo-container-green">GREEN</th>
+                <a href="{% url 'registrar_entrada' %}">
+                    <span>Registrar Banca</span>
 
-                            <th class="dashboard-titulo-container-red">RED</th>
-                        </tr>
-                    </table>
+                    <span>
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                </a>
+                <a href="{% url 'mostrar_saldo' %}">
+                    <span>informacoes banca</span>
 
-                    <table>
-
-
-
-                        <tr>
-                            <th class="dashboard-titulo-container-green-numero">52</th>
-                            <th class="dashboard-titulo-container-x">x</th>
-
-                            <th class=" dashboard-titulo-container-red-numero">26</th>
-                        </tr>
-                    </table>
-
-
-                    <div class="dashboard-win">
-                        <span class="dashboard-win-item">
-                            <i class="fas fa-user"></i>
-                            Rayzinho
-                        </span>
-                        <span class="dashboard-win-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            16/10/2021 às 11:21
-                        </span>
-                        <span class="dashboard-win-item">
-                            <a href="/recipes/category/cafe-da-manha/">
-                                <i class="fas fa-layer-group"></i>
-                                <span>Saiba mais</span>
-                            </a>
-                        </span>
-                    </div>
-
-
-
-
-                </div>
-
-
+                    <span>
+                        <i class="fas fa-user-plus"></i>
+                        </spanclass=>
+                </a>
             </div>
 
-            <h2>olá</h2>
-            {% block conteudo %}
-            <main class="bilhetes-recentes">
-                <div class="bilhetes-recentes">
-                    <div>
-                        <h1>{{ nome_pagina }}</h1>
 
-                        <a href="{% url 'registrar_bilhete' %}">
-                            <span>Registrar Bilhete</span>
 
-                            <span>
-                                <i class="fas fa-user-plus"></i>
-                            </span>
-                        </a>
+            <main class="main-content-container">
+                <div class="main-content main-content-list container">
+                    <div class="dashboard resumo-lista-item">
+                        <div class="resumo-cover">
 
-                        <a href="{% url 'registrar_entrada' %}">
-                            <span>Registrar Banca</span>
 
-                            <span>
-                                <i class="fas fa-user-plus"></i>
-                            </span>
-                        </a>
-                        <a href="{% url 'mostrar_saldo' %}">
-                            <span>informacoes banca</span>
+                            <table>
+                                <tr>
+                                    <th class="dashboard-titulo-container-green">GREEN</th>
 
-                            <span>
-                                <i class="fas fa-user-plus"></i>
-                                </spanclass=>
-                        </a>
+                                    <th class="dashboard-titulo-container-red">RED</th>
+                                </tr>
+                            </table>
+
+                            <table>
+
+
+
+                                <tr>
+                                    <th class="dashboard-titulo-container-green-numero">{{ bilhetes_green }}</th>
+                                    <th class="dashboard-titulo-container-x">x</th>
+
+                                    <th class=" dashboard-titulo-container-red-numero">{{bilhetes_red}}</th>
+                                </tr>
+                            </table>
+
+
+                            <div class="dashboard-win">
+                                <span class="dashboard-win-item">
+                                    <i class="fas fa-user"></i>
+                                    Rayzinho
+                                </span>
+                                <span class="dashboard-win-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    16/10/2021 às 11:21
+                                </span>
+                                <span class="dashboard-win-item">
+                                    <a href="/recipes/category/cafe-da-manha/">
+                                        <i class="fas fa-layer-group"></i>
+                                        <span>Saiba mais</span>
+                                    </a>
+                                </span>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                        <div class="resumo-cover">
+
+                            <table>
+                                <tr>
+
+                                    <td>Banca Total</td>
+                                    <td>Lucro liquido</td>
+
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td>R$ 4852,65</td>
+                                    <td>R$ 1285,87</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
+
+
+
+
+
+
+
+                    <h2>olá</h2>
+
+
 
                     {% if messages %}
                     {% for mensagem in messages %}
@@ -105,131 +137,59 @@
 
                     {% endif %}
 
-                    <div>
+
+
+                    <div class="bilhetes-recentes">
                         <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>
-                                                Aguardando</div>
-                                            <div>
-                                                {{ billhetes_aguardando }}
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <i class="fas fa-user-lock fa-2x text-gray-300"></i>
-                                        </div>
-                                        </div=>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>
-                                                <div">
-                                                    Bilhetes
-                                                    Green
-                                            </div>
-                                            <div>{{bilhetes_green}}
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <i class="fas fa-user-clock fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h2>Apostas recentes</h2>
                         </div>
 
                         <div>
                             <div>
-                                <div>
-                                    <div">
-                                        <div>
-                                            <div>
-                                                Reds
-                                            </div>
-                                            <div>{{ bilhetes_red }}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-user-check fa-2x text-gray-300"></i>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                <table class="bilhetes-recentes">
+                                    <thead>
+                                        <th>Partida</th>
 
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>Sua Banca
-                                        </div>
-                                        <div>
-                                            {{ Banca_valor.valor_inicial }}</div>
-                                    </div>
-                                    <div>
-                                        <i></i>
-                                    </div>
-                                </div>
+                                        <th>valor aposta</th>
+
+                                        <th>Resultado</th>
+                                        <th>Status Bilhete</th>
+                                        <th>horario aposta</th>
+
+                                        <th>Mais informações</th>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for bilhete in todos_bilhetes %}
+                                        <tr>
+                                            <td>{{ bilhete.get_jogo }}</td>
+                                            <td>{{ bilhete.get_valor_aposta }}</td>
+
+                                            <td>{{ bilhete.valor_ganho}}</td>
+                                            <td>{{ bilhete.status}}</td>
+                                            <td>{{ bilhete.horario_aposta}}</td>
+
+                                            <td>
+                                                <a href="{% url 'informacoes_bilhete' id=bilhete.id %}">
+                                                    Ver informações
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </main>
 
-                <div class="bilhetes-recentes">
-                    <div>
-                        <h6>Apostas recentes</h6>
-                    </div>
 
-                    <div>
-                        <div>
-                            <table class="bilhetes-recentes">
-                                <thead>
-                                    <th>Partida</th>
 
-                                    <th>valor aposta</th>
 
-                                    <th>Resultado</th>
-                                    <th>Status Bilhete</th>
-                                    <th>horario aposta</th>
-
-                                    <th>Mais informações</th>
-                                </thead>
-
-                                <tbody>
-                                    {% for bilhete in todos_bilhetes %}
-                                    <tr>
-                                        <td>{{ bilhete.get_jogo }}</td>
-                                        <td>{{ bilhete.get_valor_aposta }}</td>
-
-                                        <td>{{ bilhete.valor_ganho}}</td>
-                                        <td>{{ bilhete.status}}</td>
-                                        <td>{{ bilhete.horario_aposta}}</td>
-
-                                        <td>
-                                            <a href="{% url 'informacoes_bilhete' id=bilhete.id %}">
-                                                Ver informações
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
         </div>
     </main>
-    {% endblock conteudo %}
+
 
 
 
